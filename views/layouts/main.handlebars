@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tech Blog</title>
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body>
+  <header class="justify-space-between align-center">
+    <nav class="navbar-expand-lg navbar-light bg-ligh">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav" href="/dashboard">Dashboard</a>
+          </li>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+          <li class="nav-item">
+            <a class="nav" href="/" id="logout">Logout</a>
+            {{else}}
+            <a class="nav" href="/login">Login</a>
+            {{/if}}
+          </li>
+        </ul>
+      </div>
+      <div>
+        {{#if logged_in}}
+        <p>
+          <a href="/dashboard" class="my-badge">Dashboard</a>
+        </p>
+        {{else}}
+        <p>
+          <a href="/" class="my-badge">The Tech Blog</a>
+        </p>
+        {{/if}}
+      </div>
+    </nav>
+  </header>
+  <div class="flex-column justify-space-around">
+    <main class="container container-fluid mt-5">
+      {{{ body }}}
+    </main>
+    <footer>
+
+    </footer>
+  </div>
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

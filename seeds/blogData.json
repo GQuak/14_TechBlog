@@ -3,6 +3,16 @@
       "title": "Music Near Me",
       "body": "A mobile app that will send you notifications whenever a concert is playing in your area.",
       "user_id": 1
+    },
+    {
+      "title": "NBA Jersey Number Calculator",
+      "body": "A mobile app that allows you to find NBA players by their jersey number.",
+      "user_id": 2
+    },
+    {
+      "title": "Walk With Me",
+      "body": "A mobile app that will suggest playlists for you based on how you walk. With a certain breed of dog? Got you covered. Looking to clear your head while stretching your legs? We've got that too. Think we missed something? You can even add your own suggested playlists!",
+      "user_id": 2
     }
   ]
   

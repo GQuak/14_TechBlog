@@ -1,8 +1,23 @@
 [
     {
-      "body": "I love this idea!",
+      "comment": "I love this idea!",
       "blog_id": 1,
-      "user_id": 2
+      "name": "Douglas"
+    },
+    {
+      "comment": "I would totally use this app to help while watching NBA games when I can't figure out which player is torching the Portland Trailblazers.",
+      "blog_id": 2,
+      "name": "Frank"
+    },
+    {
+      "comment": "Can you expand this idea to other sports? I watch mainly NFL games and would love to be able to find players by their number as well.",
+      "blog_id": 2,
+      "name": "Alissa"
+    },
+    {
+      "comment": "As a professional dog walker I can confirm the quality of dog walking playlists!",
+      "blog_id": 3,
+      "name": "Bobby"
     }
   ]
   
