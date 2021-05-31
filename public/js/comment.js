@@ -1,33 +1,33 @@
 const newCommentHandler = async (event) => {
   event.preventDefault();
 
-  const commentName = document.querySelector("#comment-name").value.trim();
-  const comment = document.querySelector("#comment-text").value.trim();
-  const postId = document.querySelector("#post-id").value.trim();
+  const commentName = document.querySelector('#comment-name').value.trim();
+  const comment = document.querySelector('#comment-text').value.trim();
+  const blogId = document.querySelector('#blog-id').value.trim();
 
-  console.log(postId);
+  console.log(blogId);
 
-  if (postId && commentName && comment) {
+  if (blogId && commentName && comment) {
     const response = await fetch(`/api/comment`, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify({
-        post_id: postId,
+        blog_id: blogId,
         name: commentName,
         comment: comment,
       }),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      document.location.replace("/");
+      document.location.replace('/');
     } else {
-      alert("Failed to post comment!");
+      alert('Failed to post comment!');
     }
   }
 };
 
 document
-  .querySelector(".new-comment")
-  .addEventListener("submit", newCommentHandler);
+  .querySelector('.new-comment')
+  .addEventListener('submit', newCommentHandler);

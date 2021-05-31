@@ -1,21 +1,21 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{user_name}}!</h2>
+    <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
 
 <div class="row mt-4">
-  <div class="col-md-5 create-post">
-    <h3>Create a Post:</h3>
+  <div class="col-md-5 create-blog">
+    <h3>Create a New Blog Post:</h3>
 
-    <form class="form new-post-form" id="post-form">
+    <form class="form new-blog-form" id="blog-form">
       <div class="form-group">
-        <label for="post-title">Title:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
+        <label for="blog-title">Title:</label>
+        <input class="form-input" type="text" id="blog-title" name="blog-title" />
       </div>
       <div class="form-group">
-        <label for="post-content">Content:</label>
-        <textarea class="form-input" id="post-content" name="post-content"></textarea>
+        <label for="blog-body">Body:</label>
+        <textarea class="form-input" id="blog-body" name="blog-body"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -24,14 +24,14 @@
   </div>
 
 
-  <div class="col-md-6 post-list">
-    {{#if posts.length}}
-    {{#each posts as |post|}}
-    <div class="row mb-2 post-list">
-      <div class="col-md-8 post-list-item">
-        <h4 data-id="{{post.id}}">{{post.title}} on {{format_date post.date_created}}</h4>
+  <div class="col-md-6 blog-list">
+    {{#if blogs.length}}
+    {{#each blogs as |blog|}}
+    <div class="row mb-2 blog-list">
+      <div class="col-md-8 blog-list-item">
+        <h4 data-id="{{blog.id}}">{{blog.title}} on {{format_date blog.date_created}}</h4>
       </div>
-      <a class="button btn-check" href="/post/{{post.id}}" id="{{post.id}}">Edit</a>
+      <a class="button btn-check" href="/blog/{{blog.id}}" id="{{blog.id}}">Edit</a>
     </div>
     {{/each}}
     {{/if}}

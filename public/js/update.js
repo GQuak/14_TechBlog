@@ -1,26 +1,26 @@
 const updateButtonHandler = async (event) => {
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
 
-    const title = document.querySelector("#post-title").value.trim();
-    const content = document.querySelector("#post-content").value.trim();
+    const title = document.querySelector('#blog-title').value.trim();
+    const body = document.querySelector('#blog-body').value.trim();
 
-    if (title && content) {
-      const response = await fetch(`/api/posts/${id}`, {
-        method: "PUT",
-        body: JSON.stringify({ title, content }),
-        headers: { "Content-Type": "application/json" },
+    if (title && body) {
+      const response = await fetch(`/api/blog/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ title, body }),
+        headers: { 'Content-Type': 'application/json' },
       });
 
       if (response.ok) {
-        document.location.replace("/dashboard");
+        document.location.replace('/dashboard');
       } else {
-        alert("Failed to update post");
+        alert('Failed to update blog post');
       }
     }
   }
 };
 
 document
-  .querySelector(".update")
-  .addEventListener("click", updateButtonHandler);
+  .querySelector('.update')
+  .addEventListener('click', updateButtonHandler);

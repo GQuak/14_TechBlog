@@ -1,14 +1,14 @@
-<div class="col-md-5 create-post">
-    <h3>Edit your Post:</h3>
+<div class="col-md-5 create-blog">
+    <h3>Edit your Blog Post:</h3>
 
-    <form class="form new-post-form" id="post-form">
+    <form class="form new-blog-form" id="blog-form">
         <div class="form-group">
-            <label for="post-title">Title:</label>
-            <input class="form-input" type="text" id="post-title" name="post-title" value="{{ title }}" />
+            <label for="blog-title">Title:</label>
+            <input class="form-input" type="text" id="blog-title" name="blog-title" value="{{ title }}" />
         </div>
         <div class="form-group">
-            <label for="post-content">Content:</label>
-            <input class="form-input" id="post-content" name="post-content" value="{{ content }}">
+            <label for="blog-body">Body Text:</label>
+            <input class="form-input" id="blog-body" name="blog-body" value="{{ body }}">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary update" data-id="{{ id }}">Update</button>

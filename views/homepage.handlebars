@@ -1,15 +1,15 @@
-<!-- Loop over each object in the post array -->
-{{#each posts as |post| }}
+<!-- Loop over each object in the blog array -->
+{{#each blogs as |blog| }}
 <div class="row mb-4 project">
-  <div class="col-md-12 post-item">
+  <div class="col-md-12 blog-item">
     <h2>
-      {{post.title}}
+      {{blog.title}}
     </h2>
-    <p style="font-weight: 500;">Created by {{post.user.user_name}} on {{format_date post.date_created}}</p>
-    <p>{{post.content}}</p>
-    <a class="button btn-check" href="/comment/{{post.id}}" id="{{post.id}}">Comment</a>
+    <p style="font-weight: 500;">Created by {{blog.user.name}} on {{format_date blog.date_created}}</p>
+    <p>{{blog.body}}</p>
+    <a class="button btn-check" href="/comment/{{blog.id}}" id="{{blog.id}}">Comment</a>
   </div>
-  {{#each post.comments as |comment| }}
+  {{#each blog.comments as |comment| }}
   <div class="col-md-10 comment-item">{{comment.comment}}
     <div style="text-align: end;">{{comment.name}} on {{format_date comment.date_created}}</div>
   </div>

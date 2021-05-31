@@ -1,4 +1,4 @@
-<div class="col-md-12 post-item">
+<div class="col-md-12 blog-item">
     <h2>
         {{title}}
     </h2>
@@ -6,9 +6,9 @@
     <p>{{ body }}</p>
     <form class="form new-comment">
         <input type="hidden" id="data-id" value="{{ id }}">
-        <button class="small green button delete" data-id="{{ id }}">Delete Post</button>
-        <a class="small green button update" href="/edit/{{ id }}">Update Post</a>
+        <button class="small green button delete" data-id="{{ id }}">Delete Blog Post</button>
+        <a class="small green button update" href="/edit/{{ id }}">Update Blog Post</a>
     </form>
 </div>
 
-<script src="/js/post.js"></script>
+<script src="/js/blog.js"></script>

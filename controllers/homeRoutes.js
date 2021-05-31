@@ -1,29 +1,29 @@
-const router = require("express").Router();
-const { Post, User, Comment } = require("../models");
-const withAuth = require("../utils/auth");
+const router = require('express').Router();
+const { Blog, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 // using a GET request to render the homepage with all existing blog posts
 // /
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with user data
-    const postData = await Post.findAll({
+    const blogData = await Blog.findAll({
       include: [
         {
           model: User,
-          attributes: ["user_name"],
+          attributes: ['name'],
         },
         { model: Comment },
       ],
     });
     // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
-    console.log(posts);
+    console.log(blogs);
     // Pass serialized data and session flag into template
-    res.render("homepage", {
+    res.render('homepage', {
       logged_in: req.session.logged_in,
-      posts,
+      blogs,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -32,17 +32,17 @@ router.get("/", async (req, res) => {
 
 // using GET request to render the dashboard, withAuth middleware verifies users login information before rendering the page
 // /dashboard
-router.get("/dashboard", withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // find logged in user based on session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [{ model: Post }],
+      attributes: { exclude: ['password'] },
+      include: [{ model: Blog }],
     });
     // serialize data so template can read it
     const user = userData.get({ plain: true });
     // pass serialized data and session flag into template
-    res.render("dashboard", {
+    res.render('dashboard', {
       ...user,
       logged_in: true,
     });
@@ -53,38 +53,38 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 // using GET request to display the login page
 // /login
-router.get("/login", async (req, res) => {
+router.get('/login', async (req, res) => {
   // if user already logged in, redirect request to another route
   if (req.session.logged_in) {
-    res.redirect("dashboard");
+    res.redirect('dashboard');
     return;
   }
-  res.render("login");
+  res.render('login');
 });
 
 // using GET request to display a signup page
 // /signup
-router.get("/signup", async (req, res) => {
+router.get('/signup', async (req, res) => {
   // if user already logged in, redirect request to another route
   if (req.session.logged_in) {
-    res.redirect("dashboard");
+    res.redirect('dashboard');
     return;
   }
-  res.render("signup");
+  res.render('signup');
 });
 
 // using GET request to display a single comment by its ID
 // /comment/:id
-router.get("/comment/:id", async (req, res) => {
+router.get('/comment/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
+    const blogData = await Blog.findByPk(req.params.id, {
       include: [{ model: User }, { model: Comment }],
     });
 
-    const post = postData.get({ plain: true });
+    const blog = blogData.get({ plain: true });
 
-    res.render("comment", {
-      ...post,
+    res.render('comment', {
+      ...blog,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -92,35 +92,35 @@ router.get("/comment/:id", async (req, res) => {
 });
 
 // using GET request to display a single post by its ID
-// /post/:id
-router.get("/post/:id", async (req, res) => {
+// /blog/:id
+router.get('/blog/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
+    const blogData = await Blog.findByPk(req.params.id, {
       include: [{ model: User }, { model: Comment }],
     });
 
-    const post = postData.get({ plain: true });
+    const blog = blogData.get({ plain: true });
 
-    res.render("post", {
-      ...post,
+    res.render('blog', {
+      ...blog,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// using a GET request to access a single posts data to edit
+// using a GET request to access a single blog post's data to edit
 // /edit/:id
-router.get("/edit/:id", async (req, res) => {
+router.get('/edit/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
+    const blogData = await Blog.findByPk(req.params.id, {
       include: [{ model: User }, { model: Comment }],
     });
 
-    const post = postData.get({ plain: true });
+    const blog = blogData.get({ plain: true });
 
-    res.render("edit", {
-      ...post,
+    res.render('edit', {
+      ...blog,
     });
   } catch (err) {
     res.status(500).json(err);

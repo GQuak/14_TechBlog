@@ -15,7 +15,7 @@ body {
   background-color: rgba(248, 255, 254, 0.8);
 }
 
-.post-item {
+.blog-item {
   border-style: outset;
   border-color: cornsilk;
   background-color: rgb(209, 209, 209);
@@ -32,20 +32,20 @@ body {
   margin: 5px;
 }
 
-.post-list {
+.blog-list {
   border-radius: 7px;
   background: burlywood;
   padding: 10px;
   align-items: center;
 }
 
-.create-post {
+.create-blog {
   border-radius: 7px;
   background: burlywood;
   margin-right: 10px;
 }
 
-.post-list-item {
+.blog-list-item {
   border-radius: 4px;
   background: rgb(216, 208, 198);
   border-style: outset;
