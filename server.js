@@ -5,6 +5,9 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
+// var mysql2 = require('mysql2');
+// var connection = mysql2.createConnection(process.env.JAWSDB_URL);
+
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -34,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-// sequelize.sync({ force: true }).then(() => {
+// sequelize.sync({ force: false }).then(() => {
 //   app.listen(PORT, () => console.log('Now listening'));
 // });
 sequelize
@@ -45,5 +48,5 @@ sequelize
   })
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
-    app.listen(PORT, () => console.log('Now listening'));
+    app.listen(PORT, () => console.log('Now listening, no DB'));
   });
