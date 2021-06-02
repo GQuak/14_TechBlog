@@ -10,7 +10,7 @@ Your task this week is to build a CMS-style blog site similar to a Wordpress sit
 
 ## Deployed Site
 
-Access the code here: [Github Repo](https://github.com/GQuak/13_eCommerceSite)
+Access the code here: [Github Repo](https://github.com/GQuak/14_TechBlog)
 
 ## User Story
 
