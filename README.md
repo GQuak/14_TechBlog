@@ -18,22 +18,18 @@ As a busines professional I want a place where I can share the knowledge I have 
 
 ## Description
 
-This code is designed to build a database for a small business owner
-
-Click the link below for a video walkthrough.
-
-**[Video Walkthrough](https://drive.google.com/file/d/1XEnYVH-QTDS7G2UzybzerPRvH2Q918MU/view?usp=sharing)**
+This code allows a user to login, post, and comment as well as edit or delete their posts and comments.
 
 ## Usage
 
-Open the [Tech Blog]() in a web browser.
+Open the [Tech Blog](https://rocky-cove-74493.herokuapp.com/) in a web browser.
 
 ## Mock-Up
 
 These images show the Tech Blog's appearance and functionality:
-![Sign in](./public/Images/screenshot.png)
-![Blog Feed](./public/Images/screenshot.png)
-![My Dashboard](./public/Images/screenshot.png)
+![Sign in](./public/Images/login.png)
+![Blog Feed](./public/Images/home.png)
+![My Dashboard](./public/Images/dashboard.png)
 
 ## Installation
 
