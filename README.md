@@ -27,8 +27,13 @@ Open the [Tech Blog](https://rocky-cove-74493.herokuapp.com/) in a web browser.
 ## Mock-Up
 
 These images show the Tech Blog's appearance and functionality:
+# Login Screen
 ![Sign in](./public/images/login.png)
+
+# Homepage
 ![Blog Feed](./public/images/home.png)
+
+# Dashboard
 ![My Dashboard](./public/images/dashboard.png)
 
 ## Installation
